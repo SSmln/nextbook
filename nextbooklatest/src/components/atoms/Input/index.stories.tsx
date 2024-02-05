@@ -1,7 +1,8 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, ComponentStoryFn } from "@storybook/react";
 import Input from "./index";
 
 export default {
+  component: Input,
   title: "Atoms/Input",
   argTypes: {
     placeholder: {
@@ -28,11 +29,12 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof InputText>;
+} as Meta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
-
+const Template: ComponentStoryFn<typeof Input> = (args) => {
+  return <Input {...args} />;
+};
+// const Template: ComponentStory<typeof StyledButton> = (args) => <StyledButton {...args} />;
 export const Normal = Template.bind({});
 
 export const Error = Template.bind({});
-Error.args = { hasError: true };
