@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, ComponentStory } from "@storybook/react";
 import ShapeImage from "./index";
 
 export default {
@@ -38,7 +38,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ShapeImage>;
+} as Meta<typeof ShapeImage>;
 
 const Template: ComponentStory<typeof ShapeImage> = (args) => (
   <ShapeImage {...args} />

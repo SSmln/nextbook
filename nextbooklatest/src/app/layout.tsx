@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { createGlobalStyle } from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });
-
 
 const GlobalStyle = createGlobalStyle`
 html,
@@ -31,7 +30,7 @@ a {
 ol, ul {
   list-style: none;
 }
-`
+`;
 
 export default function RootLayout({
   children,
@@ -39,22 +38,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    
     <html lang="en">
-    <head>
-      <meta key="charset" name="charset" content="utf-8" />
-      <meta 
-        key="viewport"
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=5"
-      /> 
-      <meta property="og:locale" content="ko_KR" />
-      <meta property="og:type" content="website" />
-
-    </head>
-    <body className={inter.className}>
-      <GlobalStyle />
-      {children}
+      <head>
+        <meta key="charset" name="charset" content="utf-8" />
+        <meta
+          key="viewport"
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=5"
+        />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:type" content="website" />
+      </head>
+      <body className={inter.className}>
+        <GlobalStyle />
+        {children}
       </body>
     </html>
   );
