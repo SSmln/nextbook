@@ -25,17 +25,17 @@ const Footer = () => {
         >
           <nav>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <Anchor as="a">톱</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <Anchor as="a">채용</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <Anchor as="a">알림</Anchor>
               </Link>
             </Box>
@@ -47,17 +47,17 @@ const Footer = () => {
         >
           <nav>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <Anchor as="a">사용 규약</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <Anchor as="a">개인 정보 정책</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <Anchor as="a">배송 및 반품</Anchor>
               </Link>
             </Box>
