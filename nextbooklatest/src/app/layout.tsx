@@ -1,8 +1,13 @@
 "use client";
-
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { createGlobalStyle } from "styled-components";
+import { Inter } from "next/font/google";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { theme } from "../themes";
+import { AuthContextProvider } from "components/contexts/AuthContext";
+import GlobalSpinnerContextProvider from "components/contexts/GlobalSpinnerContext";
+import { ShoppingCartContextProvider } from "components/contexts/ShoppingCartContext";
+import GlobalSpinner from "components/organisms/GlobalSpinner";
+import type { ApiContext } from "types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,14 +29,16 @@ a {
   cursor: pointer;
   text-decoration: none;
   transition: .25s;
-  color: #000
+  color: ${theme.colors.black};
 }
 
 ol, ul {
   list-style: none;
 }
 `;
-
+const context: ApiContext = {
+  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || "/api/proxy",
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -51,7 +58,16 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <GlobalStyle />
-        {children}
+        <ThemeProvider theme={theme}>
+          <GlobalSpinnerContextProvider>
+            <ShoppingCartContextProvider>
+              <AuthContextProvider context={context}>
+                <GlobalSpinner />
+                {children}
+              </AuthContextProvider>
+            </ShoppingCartContextProvider>
+          </GlobalSpinnerContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

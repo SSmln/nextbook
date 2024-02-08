@@ -3,14 +3,6 @@ import { theme } from "../src/themes";
 import * as NextImage from "next/image";
 
 export const parameters = {
-  decorators: [
-    (Story) => (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {Story()}
-      </ThemeProvider>
-    ),
-  ],
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -18,6 +10,17 @@ export const parameters = {
       date: /Date$/,
     },
   },
+};
+
+export default {
+  decorators: [
+    (story) => (
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        {story()}
+      </ThemeProvider>
+    ),
+  ],
 };
 
 export const GlobalStyle = createGlobalStyle`

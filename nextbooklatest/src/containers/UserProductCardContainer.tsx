@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import ProductCard from "components/organisms/ProductCard";
-
+import ProductCardList from "components/organisms/ProductCardList";
+import useSearch from "services/products/use-search";
 // import ProductCardList from "components/organisms/ProductCardList";
 // import useSearch from "services/products/use-search";
-import ProductCardList from "./../components/organisms/ProductCardList/index";
 
 import type { ApiContext, Product } from "types";
 
@@ -41,7 +41,6 @@ const UserProductCardListContainer = ({
       {userProducts.map((p) => (
         <Fragment key={p.id}>
           <Link href={`/products/${p.id}`} passHref>
-
             {/* 상품 카드 */}
             <ProductCard
               variant="small"
@@ -49,7 +48,6 @@ const UserProductCardListContainer = ({
               price={p.price}
               imageUrl={p.imageUrl}
             />
-
           </Link>
         </Fragment>
       ))}

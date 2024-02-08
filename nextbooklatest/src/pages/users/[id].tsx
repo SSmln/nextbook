@@ -17,6 +17,8 @@
 // import getAllProducts from "services/products/get-all-products";
 // import getAllUsers from "services/users/get-all-users";
 // import getUser from "services/users/get-user";
+import { UserProductCardListContainer } from "containers/UserProductCardListContainer";
+import { UserProfileContainer } from "containers/UserProfileContainer";
 import type {
   GetStaticPaths,
   GetStaticPropsContext,
@@ -25,6 +27,7 @@ import type {
 } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import getAllUsers from "services/users/get-all-users";
 import BreadcrumbItem from "components/atoms/BreadcrumbItem";
 import Separator from "components/atoms/Separator";
 import Box from "components/layout/Box";
@@ -33,10 +36,7 @@ import Breadcrumb from "components/molecules/Breadcrumb";
 // eslint-disable-next-line import/order
 import Layout from "components/Template/Layout";
 
-import { UserProductCardListContainer } from "containers/UserProductCardListContainer";
-import { UserProfileContainer } from "containers/UserProfileContainer";
 import getAllProducts from "services/products/get-all-products";
-import getAllUsers from "services/users/get-all-users";
 
 
 import getUser from "services/users/get-user";

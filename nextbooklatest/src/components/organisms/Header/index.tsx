@@ -1,6 +1,6 @@
 /* eslint-disable import/order */
 import Link from "next/link";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import AppLogo from "components/atoms/AppLogo";
 import Button from "components/atoms/Button";
 import {
@@ -17,22 +17,18 @@ import BadgeIconButton from "components/molecules/BadgeIconButton";
 // eslint-disable-next-line import/order
 import { useShoppingCartContext } from "components/contexts/ShoppingCartContext";
 import { useAuthContext } from "components/contexts/AuthContext";
-// import { useAuthContext } from "components/contexts/AuthContext";
-
-// import { useAuthContext } from "contexts/AuthContext";
-// import { useShoppingCartContext } from "contexts/ShoppingCartContext";
 
 // 헤더 루트
 const HeaderRoot = styled.header`
   height: 88px;
-  padding: 0px;
-  border-bottom: 1px solid;
+  padding: 16px 0px;
+  border-bottom: 1px solid "#cdced2";
 `;
 
 // 내비게이션
 const Nav = styled(Flex)`
   & > span:not(:first-child) {
-    /* margin-left: ${({ theme }) => theme.space["2"]}; */
+    margin-left: 16px;
   }
 `;
 
@@ -61,7 +57,7 @@ const Header = () => {
       <Flex paddingLeft={3} paddingRight={3} justifyContent="space-between">
         <Nav as="nav" height="56px" alignItems="center">
           <NavLink>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="/" passHref>
               <Anchor as="a">
                 <AppLogo />
               </Anchor>
@@ -69,28 +65,28 @@ const Header = () => {
           </NavLink>
           <NavLink>
             <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search" passHref legacyBehavior>
+              <Link href="/search" passHref>
                 <Anchor as="a">모두</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search/clothes" passHref legacyBehavior>
+              <Link href="/search/clothes" passHref>
                 <Anchor as="a">의류</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search/book" passHref legacyBehavior>
+              <Link href="/search/book" passHref>
                 <Anchor as="a">책</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: "none", md: "block" }}>
-              <Link href="/search/shoes" passHref legacyBehavior>
+              <Link href="/search/shoes" passHref>
                 <Anchor as="a">신발</Anchor>
               </Link>
             </Box>
@@ -99,7 +95,7 @@ const Header = () => {
         <Nav as="nav" height="56px" alignItems="center">
           <NavLink>
             <Box display={{ base: "block", md: "none" }}>
-              <Link href="/search" passHref legacyBehavior>
+              <Link href="/search" passHref>
                 <Anchor as="a">
                   <SearchIcon />
                 </Anchor>
@@ -107,7 +103,7 @@ const Header = () => {
             </Box>
           </NavLink>
           <NavLink>
-            <Link href="/cart" passHref legacyBehavior>
+            <Link href="/cart" passHref>
               <Anchor as="a">
                 <BadgeIconButton
                   icon={<ShoppingCartIcon size={24} />}
@@ -123,7 +119,7 @@ const Header = () => {
               // 인증된 상태라면 아이콘을 표시
               if (authUser) {
                 return (
-                  <Link href={`/users/${authUser.id}`} passHref legacyBehavior>
+                  <Link href={`/users/${authUser.id}`} passHref>
                     <Anchor as="a">
                       <ShapeImage
                         shape="circle"
@@ -131,7 +127,7 @@ const Header = () => {
                         width={24}
                         height={24}
                         data-testid="profile-shape-image"
-                        alt={""}
+                        alt=""
                       />
                     </Anchor>
                   </Link>
@@ -142,7 +138,7 @@ const Header = () => {
               } else {
                 // 로그인 하지 않은 경우에는 아이콘을 표시
                 return (
-                  <Link href="/signin" passHref legacyBehavior>
+                  <Link href="/signin" passHref>
                     <Anchor as="a">
                       <PersonIcon size={24} />
                     </Anchor>
@@ -152,7 +148,7 @@ const Header = () => {
             })()}
           </NavLink>
           <NavLink>
-            <Link href="/sell" passHref legacyBehavior>
+            <Link href="/sell" passHref>
               <Button as="a">등록</Button>
             </Link>
           </NavLink>
